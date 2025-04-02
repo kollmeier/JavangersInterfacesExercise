@@ -14,4 +14,9 @@ public interface SkippableInterface {
      * @throws EndOfPlaylistException is always thrown
      */
     void skipAll() throws EndOfPlaylistException;
+
+    /**
+     * @return int current track nr to be played
+     */
+    int getCurrentPosition();
 }

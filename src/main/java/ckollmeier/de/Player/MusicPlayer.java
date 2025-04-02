@@ -4,11 +4,17 @@ import ckollmeier.de.Exception.EndOfPlaylistException;
 import ckollmeier.de.Player.Interface.PlayableInterface;
 import ckollmeier.de.Player.Interface.SkippableInterface;
 
-public class MusicPlayer implements PlayableInterface, SkippableInterface {
+public final class MusicPlayer implements PlayableInterface, SkippableInterface {
     /**
      * song index to be played.
      */
     private int currentPosition = 0;
+
+    @Override
+    public int getCurrentPosition() {
+        return currentPosition;
+    }
+
     /**
      * List of songs.
      */

@@ -4,7 +4,7 @@ import ckollmeier.de.Exception.EndOfPlaylistException;
 import ckollmeier.de.Player.Interface.PlayableInterface;
 import ckollmeier.de.Player.Interface.SkippableInterface;
 
-public class MediaController implements PlayableInterface, SkippableInterface {
+public final class MediaController implements PlayableInterface, SkippableInterface {
     /**
      * List of all media players.
      */
@@ -55,5 +55,10 @@ public class MediaController implements PlayableInterface, SkippableInterface {
             throw new EndOfPlaylistException("All media played");
         }
         mediaPlayers[currentPosition].play();
+    }
+
+    @Override
+    public int getCurrentPosition() {
+        return currentPosition;
     }
 }

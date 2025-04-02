@@ -4,7 +4,7 @@ import ckollmeier.de.Exception.EndOfPlaylistException;
 import ckollmeier.de.Player.Interface.PlayableInterface;
 import ckollmeier.de.Player.Interface.SkippableInterface;
 
-public class VideoPlayer implements PlayableInterface, SkippableInterface {
+public final class VideoPlayer implements PlayableInterface, SkippableInterface {
     /**
      * video index to be played.
      */
@@ -53,5 +53,10 @@ public class VideoPlayer implements PlayableInterface, SkippableInterface {
     public void skipAll() throws EndOfPlaylistException {
         currentPosition = 0;
         throw new EndOfPlaylistException("Skipping all videos");
+    }
+
+    @Override
+    public int getCurrentPosition() {
+        return currentPosition;
     }
 }

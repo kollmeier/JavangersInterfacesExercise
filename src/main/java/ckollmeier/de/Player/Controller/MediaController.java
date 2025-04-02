@@ -20,11 +20,10 @@ public final class MediaController implements PlayableInterface, SkippableInterf
     }
 
     /**
-     * play on first media player.
+     * play on current media player.
      */
     @Override
     public void play() {
-        currentPosition = 0;
         mediaPlayers[currentPosition].play();
     }
 
@@ -60,5 +59,9 @@ public final class MediaController implements PlayableInterface, SkippableInterf
     @Override
     public int getCurrentPosition() {
         return currentPosition;
+    }
+
+    public PlayableInterface getCurrentMediaPlayer() {
+        return mediaPlayers[currentPosition];
     }
 }

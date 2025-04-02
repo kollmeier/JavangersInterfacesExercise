@@ -1,11 +1,15 @@
-package ckollmeier.de;
+package ckollmeier.de.Player.Controller;
 
-public class MediaController implements Playable, Skippable {
-    private final Playable[] mediaPlayers;
+import ckollmeier.de.Exception.EndOfPlaylistException;
+import ckollmeier.de.Player.Interface.PlayableInterface;
+import ckollmeier.de.Player.Interface.SkippableInterface;
+
+public class MediaController implements PlayableInterface, SkippableInterface {
+    private final PlayableInterface[] mediaPlayers;
 
     private int currentPosition = 0;
 
-    public MediaController(Playable[] mediaPlayers) {
+    public MediaController(PlayableInterface[] mediaPlayers) {
         this.mediaPlayers = mediaPlayers;
     }
 
@@ -17,9 +21,9 @@ public class MediaController implements Playable, Skippable {
 
     @Override
     public void skip() throws EndOfPlaylistException {
-        if (mediaPlayers[currentPosition] instanceof Skippable) {
+        if (mediaPlayers[currentPosition] instanceof SkippableInterface) {
             try {
-                ((Skippable) mediaPlayers[currentPosition]).skip();
+                ((SkippableInterface) mediaPlayers[currentPosition]).skip();
             } catch (EndOfPlaylistException e) {
                 skipAll();
             }

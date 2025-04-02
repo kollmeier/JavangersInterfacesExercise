@@ -1,6 +1,10 @@
-package ckollmeier.de;
+package ckollmeier.de.Player;
 
-public class VideoPlayer implements Playable, Skippable {
+import ckollmeier.de.Exception.EndOfPlaylistException;
+import ckollmeier.de.Player.Interface.PlayableInterface;
+import ckollmeier.de.Player.Interface.SkippableInterface;
+
+public class VideoPlayer implements PlayableInterface, SkippableInterface {
     private int currentPosition = 0;
     private final String[] videos;
 

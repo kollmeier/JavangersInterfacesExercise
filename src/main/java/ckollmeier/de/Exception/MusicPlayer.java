@@ -1,6 +1,9 @@
-package ckollmeier.de;
+package ckollmeier.de.Exception;
 
-public class MusicPlayer implements Playable, Skippable {
+import ckollmeier.de.Player.Interface.PlayableInterface;
+import ckollmeier.de.Player.Interface.SkippableInterface;
+
+public class MusicPlayer implements PlayableInterface, SkippableInterface {
     private int currentPosition = 0;
     private final String[] songs;
 

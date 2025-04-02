@@ -5,20 +5,33 @@ import ckollmeier.de.Player.Interface.PlayableInterface;
 import ckollmeier.de.Player.Interface.SkippableInterface;
 
 public class MediaController implements PlayableInterface, SkippableInterface {
+    /**
+     * List of all media players.
+     */
     private final PlayableInterface[] mediaPlayers;
 
+    /**
+     * current media player which is playing.
+     */
     private int currentPosition = 0;
 
-    public MediaController(PlayableInterface[] mediaPlayers) {
+    public MediaController(final PlayableInterface[] mediaPlayers) {
         this.mediaPlayers = mediaPlayers;
     }
 
+    /**
+     * play on first media player.
+     */
     @Override
     public void play() {
         currentPosition = 0;
         mediaPlayers[currentPosition].play();
     }
 
+    /**
+     * skip to next media in current player.
+     * @throws EndOfPlaylistException when last media player played last media
+     */
     @Override
     public void skip() throws EndOfPlaylistException {
         if (mediaPlayers[currentPosition] instanceof SkippableInterface) {
@@ -30,6 +43,10 @@ public class MediaController implements PlayableInterface, SkippableInterface {
         }
     }
 
+    /**
+     * skip to next player.
+     * @throws EndOfPlaylistException when last media player played
+     */
     @Override
     public void skipAll() throws EndOfPlaylistException {
         currentPosition++;

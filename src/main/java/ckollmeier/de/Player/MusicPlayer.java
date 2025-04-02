@@ -1,20 +1,30 @@
-package ckollmeier.de.Exception;
+package ckollmeier.de.Player;
 
+import ckollmeier.de.Exception.EndOfPlaylistException;
 import ckollmeier.de.Player.Interface.PlayableInterface;
 import ckollmeier.de.Player.Interface.SkippableInterface;
 
 public class MusicPlayer implements PlayableInterface, SkippableInterface {
+    /**
+     * song index to be played.
+     */
     private int currentPosition = 0;
+    /**
+     * List of songs.
+     */
     private final String[] songs;
 
-    public MusicPlayer(String[] songs) {
+    public MusicPlayer(final String[] songs) {
         this.songs = songs;
     }
 
     private void playActualSong() {
-        System.out.printf("(Playing song %2d/%2d): %s\n",currentPosition+1, songs.length, songs[currentPosition]);
+        System.out.printf("(Playing song %2d/%2d): %s\n", currentPosition + 1, songs.length, songs[currentPosition]);
     }
 
+    /**
+     * play list from beginning.
+     */
     @Override
     public void play() {
         System.out.println("Playing music");
@@ -22,6 +32,10 @@ public class MusicPlayer implements PlayableInterface, SkippableInterface {
         playActualSong();
     }
 
+    /**
+     * skip to next song.
+     * @throws EndOfPlaylistException when no more songs in list
+     */
     @Override
     public void skip() throws EndOfPlaylistException {
         currentPosition++;
@@ -32,6 +46,10 @@ public class MusicPlayer implements PlayableInterface, SkippableInterface {
         playActualSong();
     }
 
+    /**
+     * skips all songs.
+     * @throws EndOfPlaylistException always thrown
+     */
     @Override
     public void skipAll() throws EndOfPlaylistException {
         currentPosition = 0;

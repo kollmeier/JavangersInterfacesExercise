@@ -2,14 +2,14 @@ package ckollmeier.de;
 
 import ckollmeier.de.Player.Controller.MediaController;
 import ckollmeier.de.Exception.EndOfPlaylistException;
-import ckollmeier.de.Exception.MusicPlayer;
+import ckollmeier.de.Player.MusicPlayer;
 import ckollmeier.de.Player.Interface.PlayableInterface;
 import ckollmeier.de.Player.VideoPlayer;
 
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         MusicPlayer cdPlayer = new MusicPlayer(new String[]{"Waterloo", "Die Welt kann mich nicht mehr verstehn", "Song 2", "7 Nation Army"});
         VideoPlayer diskPlayer = new VideoPlayer(new String[]{"Die Hard", "Aschenblödel", "Bad Boys"});
 
@@ -33,6 +33,8 @@ public class Main {
                         break;
                     case "q":
                         System.exit(0);
+                        break;
+                    default:
                         break;
                 }
             } catch (EndOfPlaylistException e) {

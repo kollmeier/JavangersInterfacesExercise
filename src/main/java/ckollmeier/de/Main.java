@@ -32,6 +32,7 @@ public class Main {
                         mediaController.skipAll();
                         break;
                     case "q":
+                        scanner.close();
                         System.exit(0);
                         break;
                     default:

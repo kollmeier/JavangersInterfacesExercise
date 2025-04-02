@@ -1,7 +1,6 @@
 package ckollmeier.de.Player.Controller;
 
 import ckollmeier.de.Exception.EndOfPlaylistException;
-import ckollmeier.de.Player.Controller.MediaController;
 import ckollmeier.de.Player.Interface.PlayableInterface;
 import ckollmeier.de.Player.Interface.SkippableInterface;
 import ckollmeier.de.Player.MusicPlayer;

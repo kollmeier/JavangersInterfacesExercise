@@ -16,7 +16,7 @@ public class Main {
         MediaController mediaController = new MediaController(new PlayableInterface[]{cdPlayer, diskPlayer});
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to music player");
+        System.out.println("Welcome to media player");
         while (true) {
             System.out.println("p to play, s to skip, a to skip all, q to quit");
             String action = scanner.nextLine();
